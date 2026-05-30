@@ -2,7 +2,7 @@
   "name": "telegram-hygiene",
   "version": "0.1.0",
   "description": "Manage your Telegram subscriptions and chats across multiple accounts",
-  "main": "dist-electron/main/index.js",
+  "main": "out/main/index.js",
   "scripts": {
     "dev": "electron-vite dev",
     "build": "electron-vite build",
@@ -11,18 +11,21 @@
     "dist": "electron-builder",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": ["telegram", "electron", "macos"],
+  "keywords": [
+    "telegram",
+    "electron",
+    "macos"
+  ],
   "author": "Oleg Tretyak",
   "license": "MIT",
   "devDependencies": {
-    "@electron-toolkit/tsconfig": "^1.0.1",
     "@types/better-sqlite3": "^7.6.12",
     "@types/node": "^22.0.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.0",
     "autoprefixer": "^10.4.20",
-    "electron": "^33.0.0",
+    "electron": "^42.3.0",
     "electron-builder": "^25.0.0",
     "electron-vite": "^2.3.0",
     "postcss": "^8.4.47",
@@ -31,8 +34,6 @@
     "vite": "^5.4.0"
   },
   "dependencies": {
-    "@electron-toolkit/preload": "^3.0.1",
-    "@electron-toolkit/utils": "^3.0.0",
     "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.1.2",
@@ -57,14 +58,19 @@
   "build": {
     "appId": "com.olegtretyak.telegramhygiene",
     "productName": "Telegram Hygiene",
+    "directories": {
+      "buildResources": "resources"
+    },
     "mac": {
-      "target": ["dmg", "zip"],
+      "target": [{ "target": "dir" }],
       "category": "public.app-category.productivity",
       "darkModeSupport": true
     },
     "files": [
-      "dist/**/*",
-      "dist-electron/**/*"
-    ]
+      "out/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "npmRebuild": false
   }
 }

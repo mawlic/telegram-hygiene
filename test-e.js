@@ -1,0 +1,5 @@
+const fs = require('fs')
+const log = (s) => fs.appendFileSync('/tmp/electron-test.log', s + '\n')
+log('process.type: ' + process.type + ' | electron: ' + process.versions.electron)
+const e = require('electron')
+log('require type: ' + typeof e + (typeof e === 'object' ? ' keys: ' + Object.keys(e).slice(0,5).join(',') : ' val: ' + String(e).slice(0,50)))

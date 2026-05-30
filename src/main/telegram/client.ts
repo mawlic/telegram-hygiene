@@ -7,8 +7,8 @@ import { accountQueries, entityQueries, activityQueries } from '../db'
 import input from 'input'
 
 // Telegram API credentials — users should replace with their own from https://my.telegram.org
-const API_ID = parseInt(process.env.TG_API_ID || '2040')
-const API_HASH = process.env.TG_API_HASH || 'b18441a1ff607e10a989891a5462e627'
+const API_ID = parseInt(process.env.TG_API_ID || '26737529')
+const API_HASH = process.env.TG_API_HASH || '4890bd19034e89db5a43ed43dca8bd85'
 
 const clients = new Map<number, TelegramClient>()
 
