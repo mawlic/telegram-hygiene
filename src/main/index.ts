@@ -36,8 +36,8 @@ function createWindow(): void {
   }
 }
 
-app.whenReady().then(() => {
-  initDb()
+app.whenReady().then(async () => {
+  await initDb()
   registerIpcHandlers()
   createWindow()
 
